@@ -58,6 +58,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Tailwind Elements */
 .title {
   @apply text-white font-bold mb-24;
 }
@@ -78,6 +79,7 @@ button:focus-visible {
   @apply text-gray-400 text-sm;
 }
 
+/* Page */
 .page-container {
   @apply min-h-screen bg-gray-900 py-12 px-4 sm:px-6 lg:px-8;
 }
@@ -86,10 +88,12 @@ button:focus-visible {
   @apply max-w-7xl mx-auto;
 }
 
+/* Grid */
 .grid-container {
   @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6;
 }
 
+/* Card */
 .card {
   @apply bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105;
 }
