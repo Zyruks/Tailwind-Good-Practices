@@ -8,15 +8,20 @@ este repositorio proporciona una configuración mínima para que react funcione 
 
 seguí estos pasos para empezar:
 
-1. clona este repositorio:  
+1. clona este repositorio:
+
    ```sh
    git clone <url_del_repositorio>
    ```
-2. instalá las dependencias:  
+
+2. instalá las dependencias:
+
    ```sh
    bun install
    ```
-3. ejecutá el servidor de desarrollo:  
+
+3. ejecutá el servidor de desarrollo:
+
    ```sh
    bun run dev
    ```
@@ -28,6 +33,7 @@ seguí estos pasos para empezar:
 este proyecto implementa **tailwind css** siguiendo las mejores prácticas para mantener un diseño consistente, reutilizable y fácil de mantener. a continuación, algunos principios clave aplicados en esta configuración:
 
 ### **1. Clases reutilizables con `@apply` (usadas moderadamente)**
+
 centralizamos estilos comunes, como botones y tarjetas, en un archivo CSS base para evitar duplicación.
 
 ```css
@@ -40,6 +46,7 @@ centralizamos estilos comunes, como botones y tarjetas, en un archivo CSS base p
 ```
 
 ### **2. Orden lógico de clases**
+
 seguimos un orden coherente en las clases para facilitar la lectura:  
 **layout > display > spacing > border > color > text**.
 
@@ -48,6 +55,7 @@ seguimos un orden coherente en las clases para facilitar la lectura:
 ```
 
 ### **3. Uso del tema personalizado**
+
 configuramos colores y tamaños personalizados en `tailwind.config.js` para mantener un diseño consistente.
 
 ```js
@@ -55,8 +63,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#1E3A8A',
-        secondary: '#9333EA',
+        primary: "#1E3A8A",
+        secondary: "#9333EA",
       },
     },
   },
@@ -66,6 +74,7 @@ module.exports = {
 esto asegura que los colores y estilos sean reutilizables y fáciles de ajustar.
 
 ### **4. Variantes para estilos dinámicos**
+
 usamos variantes como `hover:`, `focus:`, `sm:` para controlar estilos según el estado o el tamaño de pantalla.
 
 ```tsx
@@ -75,6 +84,7 @@ usamos variantes como `hover:`, `focus:`, `sm:` para controlar estilos según el
 ```
 
 ### **5. Clases comunes en componentes padres**
+
 para estilos compartidos por múltiples elementos hijos, aplicamos las clases en el contenedor padre para evitar redundancia.
 
 ```tsx
@@ -85,12 +95,15 @@ para estilos compartidos por múltiples elementos hijos, aplicamos las clases en
 ```
 
 ### **6. Evitamos clases en línea**
+
 los estilos complejos se mueven a clases CSS reutilizables o al padre.
 
 ### **7. Diseño inline-first**
+
 priorizamos utilidades de tailwind directamente en el JSX, aprovechando su filosofía inline-first.
 
 ### **8. Utilidades responsivas**
+
 se usan prefijos como `sm:`, `md:`, `lg:` para manejar diseños adaptativos.
 
 ```tsx
@@ -100,6 +113,7 @@ se usan prefijos como `sm:`, `md:`, `lg:` para manejar diseños adaptativos.
 ```
 
 ### **9. Limpieza en producción**
+
 el archivo CSS final elimina automáticamente las clases no utilizadas para mantenerlo ligero.
 
 ---

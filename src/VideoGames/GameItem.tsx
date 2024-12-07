@@ -14,8 +14,8 @@ const GameItem = (game: Omit<VideoGame, "id">) => {
         </div>
       </div>
       <div className="card-content">
-        <h3 className="title title-md">{game.title}</h3>
-        <h4 className="subtitle">{game.subtitle}</h4>
+        <h3 className="title title-md text-primary">{game.title}</h3>
+        <h4 className="subtitle text-secondary-100">{game.subtitle}</h4>
         <p className="description">{game.description}</p>
       </div>
     </div>
