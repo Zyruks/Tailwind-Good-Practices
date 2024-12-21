@@ -1,134 +1,100 @@
-# React + TypeScript + Vite + Tailwind CSS
+# React + TypeScript + Vite + Tailwind CSS + Personal Workflow Enhancements
 
-este repositorio proporciona una configuración mínima para que react funcione en vite con typescript y tailwind css. el objetivo principal es mostrar cómo desarrollar una aplicación que muestre videojuegos utilizando estas tecnologías, **siguiendo las mejores prácticas de tailwind css para un código limpio, reutilizable y mantenible.**
+This repository is a fork of Gentleman Programming's original project, which showcases best practices for using **Tailwind CSS**, **React**, **TypeScript**, and **Vite**. In this fork, I have restructured and extended the project to reflect my personal workflow, demonstrating how I approach creating scalable, maintainable, and reusable applications with these technologies.
+
+This enhanced version serves as both a learning tool and a practical example of modern development practices, providing insight into how I streamline my development process with tools like **Prettier**, **VS Code configurations**, and utility-driven design.
 
 ---
 
-## Instalación
+## Enhancements and Changes 🛠️
 
-seguí estos pasos para empezar:
+### **1. Prettier Configuration**
 
-1. clona este repositorio:
+- Added a custom `prettier.config.mjs` file with support for `prettier-plugin-tailwindcss`, ensuring consistent formatting and proper Tailwind class sorting.
+- Key configurations:
+  - `tailwindConfig` and `tailwindFunctions` set to handle custom class combinations.
+
+### **2. VS Code Workspace Configuration**
+
+- Introduced `.vscode/extensions.json` for recommended extensions:
+
+  - Prettier, ESLint, Tailwind CSS IntelliSense, and more.
+
+  - Added `.vscode/settings.json` for improved Tailwind CSS class detection:
+
+    <details>
+      <summary>Class Detection Preview</summary>
+      <img src="public/class-detection.gif" alt="Tailwind CSS Class Detection" />
+    </details>
+
+- Added `.vscode/settings.json` for improved Tailwind CSS class detection.
+
+### **3. Component Refactorings**
+
+- **GameCard Component:**
+  - Migrated from `VideoGamesGameItem.tsx` to `src/components/Cards/GameCard/GameCard.tsx`.
+  - Enhanced with dynamic class utilities (`cn` function), hover effects, and improved visuals.
+- **GridLayout Component:**
+  - Generalized `VideoGameGrid` to `GridLayout` in `src/layouts/GridLayouts.tsx` for reusable grid-based layouts.
+  - Supports dynamic rendering of grid items with a title and customizable classes.
+
+### **4. Utility Additions**
+
+- **cn.ts Utility:**
+  - Added `src/utils/cn.ts` for managing dynamic Tailwind CSS classes using `clsx` and `twMerge`.
+
+### **5. Global Styles Optimization**
+
+- Simplified `index.css`:
+  - Removed redundant styles for components now managed within React files.
+  - Retained essential global styles for typography and layout consistency.
+
+---
+
+## Installation
+
+To get started:
+
+1. Clone this repository:
 
    ```sh
-   git clone <url_del_repositorio>
+   git clone <repository_url>
    ```
 
-2. instalá las dependencias:
+2. Install dependencies:
 
    ```sh
-   bun install
+   npm install
    ```
 
-3. ejecutá el servidor de desarrollo:
+3. Run the development server:
 
    ```sh
-   bun run dev
+   npm run dev
    ```
 
 ---
 
-## Mejores prácticas
+## Updated Best Practices 🚀
 
-este proyecto implementa **tailwind css** siguiendo las mejores prácticas para mantener un diseño consistente, reutilizable y fácil de mantener. a continuación, algunos principios clave aplicados en esta configuración:
+This project follows Gentleman Programming's original philosophy with enhancements to embrace scalability and maintainability:
 
-### **1. Clases reutilizables con `@apply` (usadas moderadamente)**
+### **1. Utility-First Approach**
 
-centralizamos estilos comunes, como botones y tarjetas, en un archivo CSS base para evitar duplicación.
+- Leveraged Tailwind CSS's utility classes directly in JSX for cleaner and reusable code.
 
-```css
-.btn-primary {
-  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600;
-}
-.card {
-  @apply bg-gray-800 rounded-lg shadow-md p-4;
-}
-```
+### **2. Component-Level Styles**
 
-### **2. Orden lógico de clases**
+- Moved styles to individual components instead of relying on global CSS.
 
-seguimos un orden coherente en las clases para facilitar la lectura:  
-**layout > display > spacing > border > color > text**.
+### **3. Prettier Integration**
 
-```tsx
-<div className="flex items-center justify-between px-4 py-2 bg-gray-800 text-white rounded-lg shadow">
-```
+- Configured Prettier for consistent formatting and Tailwind class sorting.
 
-### **3. Uso del tema personalizado**
+### **4. Generalized Layouts**
 
-configuramos colores y tamaños personalizados en `tailwind.config.js` para mantener un diseño consistente.
+- Abstracted grid-based layouts into a reusable `GridLayout` component.
 
-```js
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        primary: "#1E3A8A",
-        secondary: "#9333EA",
-      },
-    },
-  },
-};
-```
+### **5. Improved Project Structure**
 
-esto asegura que los colores y estilos sean reutilizables y fáciles de ajustar.
-
-### **4. Variantes para estilos dinámicos**
-
-usamos variantes como `hover:`, `focus:`, `sm:` para controlar estilos según el estado o el tamaño de pantalla.
-
-```tsx
-<button className="bg-blue-500 hover:bg-blue-600 focus:ring-2 focus:ring-blue-300">
-  Click Me
-</button>
-```
-
-### **5. Clases comunes en componentes padres**
-
-para estilos compartidos por múltiples elementos hijos, aplicamos las clases en el contenedor padre para evitar redundancia.
-
-```tsx
-<div className="text-white bg-gray-900 p-4">
-  <h1 className="text-xl">Title</h1>
-  <p className="text-sm">Description</p>
-</div>
-```
-
-### **6. Evitamos clases en línea**
-
-los estilos complejos se mueven a clases CSS reutilizables o al padre.
-
-### **7. Diseño inline-first**
-
-priorizamos utilidades de tailwind directamente en el JSX, aprovechando su filosofía inline-first.
-
-### **8. Utilidades responsivas**
-
-se usan prefijos como `sm:`, `md:`, `lg:` para manejar diseños adaptativos.
-
-```tsx
-<div className="text-sm sm:text-base md:text-lg lg:text-xl">
-  Responsive Text
-</div>
-```
-
-### **9. Limpieza en producción**
-
-el archivo CSS final elimina automáticamente las clases no utilizadas para mantenerlo ligero.
-
----
-
-## Contribuciones
-
-todas las contribuciones son bienvenidas. para colaborar:
-
-1. abrí un **issue** para discutir tu idea.
-2. creá un **pull request** con tu cambio.
-
-**por favor, asegurate de seguir las mejores prácticas mencionadas para mantener la calidad del código.**
-
----
-
-## Licencia
-
-este proyecto está licenciado bajo la **licencia MIT**, permitiendo su uso y modificación para cualquier propósito.
+- Organized files into logical directories (`components`, `utils`, `layouts`).
