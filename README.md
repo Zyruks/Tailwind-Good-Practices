@@ -58,19 +58,19 @@ To get started:
 1. Clone this repository:
 
    ```sh
-   git clone <repository_url>
+   git clone https://github.com/Zyruks/Tailwind-Good-Practices
    ```
 
 2. Install dependencies:
 
    ```sh
-   npm install
+   bun install
    ```
 
 3. Run the development server:
 
    ```sh
-   npm run dev
+   bun run dev
    ```
 
 ---
