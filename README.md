@@ -27,8 +27,6 @@ This enhanced version serves as both a learning tool and a practical example of 
       <img src="public/class-detection.gif" alt="Tailwind CSS Class Detection" />
     </details>
 
-- Added `.vscode/settings.json` for improved Tailwind CSS class detection.
-
 ### **3. Component Refactorings**
 
 - **GameCard Component:**
