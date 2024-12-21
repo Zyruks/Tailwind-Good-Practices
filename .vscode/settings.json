@@ -1,0 +1,12 @@
+{
+  // Tailwind CSS Settings
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "classes", "cn"],
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "javascript": "javascript",
+    "css": "css",
+    "vue": "vue",
+    "typescript": "typescript",
+    "astro": "astro"
+  }
+}
